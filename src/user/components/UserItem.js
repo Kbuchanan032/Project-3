@@ -8,7 +8,7 @@ import './UserItem.css';
 const UserItem = props => {
   return (
     <li className="user-item">
-      <h3>LIST OF AVAILABLE SHELTERS</h3>
+      
       <Card className="user-item__content">
         <Link to={`/${props.id}/places`}>
           <div className="user-item__image">
