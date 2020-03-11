@@ -27,7 +27,11 @@ function Nav() {
           <NavLink to="/auth">Sign in</NavLink>
         </li>
         )}
-       
+        {auth.isLoggedIn && (
+          <li>
+            <button onClick={auth.logout}>Logout</button>
+          </li>
+        )}
       </ul>
     </nav>
   );
