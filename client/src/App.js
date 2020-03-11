@@ -21,21 +21,21 @@ function App() {
 
   if (isLoggedIn) {
     routes = (
-      <React.Fragment>
+      <switch>
         <Route exact path="/" component={Shelters} />
         <Route exact path="/shelters" component={Shelters} />
         <Route exact path="/shelters/:id" component={Detail} />
         <Route component={NoMatch} />
         <Redirect to ="/" />
-      </React.Fragment>
+      </switch>
     );
   }else {
     routes = (
-      <React.Fragment>
+      <switch>
        
         <Route exact path="/auth"><Auth/></Route>
         <Redirect to="/auth" />
-      </React.Fragment>
+      </switch>
       
 
     );
@@ -46,10 +46,10 @@ function App() {
     <Router>
       <div>
         <Nav />
-        <Switch>
+        
          {routes}
           
-        </Switch>
+        
       </div>
     </Router>
     </AuthContext.Provider>
