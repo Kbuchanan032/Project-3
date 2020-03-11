@@ -1,0 +1,10 @@
+#availability-header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 2rem;
+}
+
+#resultsContainer{
+  display: flex;
+}

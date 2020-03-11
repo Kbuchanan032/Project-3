@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Card from '../components/Card/Card';
+import { Card } from '../components/Card';
 import Input from '../components/Formelements/Input';
 import Button from '../components/Formelements/Button';
 import {
