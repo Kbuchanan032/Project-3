@@ -5,6 +5,8 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
+import Auth from './pages/Auth';
+
 function App() {
   return (
     <Router>
@@ -14,6 +16,7 @@ function App() {
           <Route exact path="/" component={Shelters} />
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/shelters/:id" component={Detail} />
+          <Route exact path="/auth"><Auth/></Route>
           <Route component={NoMatch} />
         </Switch>
       </div>
