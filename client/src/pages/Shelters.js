@@ -22,11 +22,12 @@ class Shelters extends Component {
       <Container fluid>
         <Row>
           <Col size="sm-12">
-            <Jumbotron> 
-              <Button>
-               <h3>CREATE USER ACCOUNT</h3> 
-               
-              </Button>
+            <Jumbotron>
+              <Link to='/auth'>
+                <Button>
+                  <h3>CREATE USER ACCOUNT</h3> 
+                </Button>
+              </Link> 
             </Jumbotron> 
           </Col>
         </Row>
