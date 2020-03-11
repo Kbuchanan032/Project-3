@@ -1,26 +1,58 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, {useState, useCallback} from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Shelters from "./pages/Shelters";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import {AuthContext} from './components/Context/auth-context';
 
 import Auth from './pages/Auth';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  })
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  })
+
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <React.Fragment>
+        <Route exact path="/" component={Shelters} />
+        <Route exact path="/shelters" component={Shelters} />
+        <Route exact path="/shelters/:id" component={Detail} />
+        <Route component={NoMatch} />
+        <Redirect to ="/" />
+      </React.Fragment>
+    );
+  }else {
+    routes = (
+      <React.Fragment>
+       
+        <Route exact path="/auth"><Auth/></Route>
+        <Redirect to="/auth" />
+      </React.Fragment>
+      
+
+    );
+  }
+
   return (
+    <AuthContext.Provider value={{isLoggedIn: isLoggedIn, login: login, logout:logout}}>
     <Router>
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Shelters} />
-          <Route exact path="/shelters" component={Shelters} />
-          <Route exact path="/shelters/:id" component={Detail} />
-          <Route exact path="/auth"><Auth/></Route>
-          <Route component={NoMatch} />
+         {routes}
+          
         </Switch>
       </div>
     </Router>
+    </AuthContext.Provider>
   );
 }
 
