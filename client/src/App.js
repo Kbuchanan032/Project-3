@@ -21,21 +21,21 @@ function App() {
 
   if (isLoggedIn) {
     routes = (
-      <switch>
+      <Switch>
         <Route exact path="/" component={Shelters} />
         <Route exact path="/shelters" component={Shelters} />
         <Route exact path="/shelters/:id" component={Detail} />
         <Route component={NoMatch} />
         <Redirect to ="/" />
-      </switch>
+      </Switch>
     );
   }else {
     routes = (
-      <switch>
+      <Switch>
         <Route exact path="/" component={Shelters} />
         <Route exact path="/auth"><Auth/></Route>
         <Redirect to="/" />
-      </switch>
+      </Switch>
       
 
     );
