@@ -1,0 +1,9 @@
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+  background-color: #FFCB2C;
+  width: fit-content;
+  align-self: center;
+  line-height: 2rem;
+}

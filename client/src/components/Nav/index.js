@@ -7,7 +7,7 @@ import './style.css'
 function Nav() {
   const auth = useContext(AuthContext);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg">
       <a className="navbar-brand" href="/">
         Shelter-Finder
       </a>

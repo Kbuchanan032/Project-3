@@ -1,0 +1,23 @@
+.card {
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow: hidden;
+  background: white;
+  margin-top: 2rem;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-header h3 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2rem;
+  color: #FFCB2C;
+  text-shadow: 2px 1px #333C40;
+}
+
