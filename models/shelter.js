@@ -6,7 +6,7 @@ const shelterSchema = new Schema({
   address: String,
   phoneNumber: String, 
   availableBeds: Number,
-  totalBeds: Number;
+  totalBeds: Number
 });
 
 const Shelter = mongoose.model("shelter", shelterSchema);
