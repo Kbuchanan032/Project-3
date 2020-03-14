@@ -11,6 +11,7 @@ import { ResultsContainer, ShelterCard } from "../components/Results";
 import "./Shelters.css";
 import GoogleApiWrapper from "../components/Map/Map.js";
 import GoogleMapReact from "google-map-react";
+require("dotenv").config();
 
 class Shelters extends Component {
   state = {

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 
+const API_KEY = process.env.REACT_APP_MAP_API_KEY;
+
+console.log(API_KEY);
+
 class MapContainer extends Component {
   render() {
     return (
@@ -18,6 +22,4 @@ class MapContainer extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ""
-})(MapContainer);
+export default GoogleApiWrapper({ apiKey: API_KEY })(MapContainer);
