@@ -47,11 +47,7 @@ function App() {
       <div>
         <Nav />
         
-        <Switch>
-          <Route exact path="/" component={Shelters} />
-          <Route exact path="/auth"><Auth/></Route>
-          <Redirect to="/" />
-        </Switch>
+        {routes}
           
         
       </div>
