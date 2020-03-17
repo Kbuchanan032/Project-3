@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Button from '../components/Button';
+import Button from "../components/Button";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { Card, CardHeader, CardBody} from '../components/Card';
-import { ShelterCard } from '../components/Results';
-import './Shelters.css';
+import { Card, CardHeader, CardBody } from "../components/Card";
+import { ShelterCard } from "../components/Results";
+import "./Shelters.css";
+import GoogleApiWrapper from "../components/Map/Map.js";
+import GoogleMapReact from "google-map-react";
+require("dotenv").config();
 
 class Shelters extends Component {
   state = {
     shelters: []
   }
-
   componentDidMount() {
     this.loadShelters();
   }
@@ -24,7 +26,7 @@ class Shelters extends Component {
     )
     .catch(err => console.log(err));
   }
-
+  
   render() {
     return (
       <Container fluid>
@@ -39,10 +41,10 @@ class Shelters extends Component {
               </h1>
               <Link to='/auth'>
                 <Button>
-                  <h3>CREATE USER ACCOUNT</h3> 
+                  <h3>CREATE USER ACCOUNT</h3>
                 </Button>
-              </Link> 
-            </Jumbotron> 
+              </Link>
+            </Jumbotron>
           </Col>
         </Row>
 
@@ -66,7 +68,7 @@ class Shelters extends Component {
                     ))}
                   </Col>
                   <Col size='sm-6'>
-                  <h3> TO-DO: ADD MAP HERE</h3>
+                    <h3> TO-DO: ADD MAP HERE</h3>
                   </Col>
                 </Row>
               </CardBody>
