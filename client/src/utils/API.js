@@ -5,9 +5,8 @@ export default {
   getShelters: function() {
     return axios.get("/api/shelters");
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/shelters/" + id);
+  getUserInfo: function (id) {
+    return axios.get("/api/users/" + id)
   },
   // Deletes the book with the given id
   deleteBook: function(id) {
