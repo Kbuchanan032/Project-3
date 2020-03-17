@@ -9,21 +9,7 @@ const Shelter = require('../models/shelter')
 const User = require('../models/user')
 
 
-let DUMMY_SHELTERS = [{
-    id: 's1',
-    name: 'Tucson Shelter',
-    phoneNumber: '(570) 406-5300 ',
-    availableBeds: '12',
-    totalBeds: '124',
-    image: 'https://lh5.googleusercontent.com/p/AF1QipN09fE5Sa3Gsv38eRPWhjW6B-_BaTAIsoL8cGr0=w152-h114-p-k-no',
-    description: "The biggest shelter in Tucson",
-    location: {
-        lat:'32.2734548',
-        lng: '-110.9786625'
-    },
-    address: '601 E Fort Lowell Rd, Tucson, AZ 85705',
-    creator: 'u1'
-}]
+
 
 
 const getShelterById = async (req, res, next) => {
@@ -88,6 +74,7 @@ const createShelter = async (req, res, next) => {
    try {
      coordinates = await getCoordsForAddress(address);
    } catch (error) {
+    console.log(error)
      return next(error);
    }
    
@@ -109,6 +96,7 @@ const createShelter = async (req, res, next) => {
    try {
      user = await User.findById(creator);
    }catch (err) {
+     console.log(err)
      const error = new HttpError(
        'Creating shelter failed, please try again', 500);
        return next(error);
