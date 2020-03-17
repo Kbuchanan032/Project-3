@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const HttpError = require('../models/http-error');
 
-<<<<<<< HEAD
 const {mykey} = require('../EndPoints/config')
 
 //<script type='text/javascript' src='config.js'></script>
@@ -11,9 +10,6 @@ const {mykey} = require('../EndPoints/config')
 //var mykey = config.API_KEY;
 
 
-=======
-const API_KEY = '';
->>>>>>> 525a7cd7d6205efdea92dadba91d67f4b4acd125
 
 async function getCoordsForAddress(address) {
   // return {
@@ -42,4 +38,3 @@ async function getCoordsForAddress(address) {
 }
 
 module.exports = getCoordsForAddress;
-
