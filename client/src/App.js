@@ -1,6 +1,7 @@
 import React, {useState, useCallback} from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Shelters from "./pages/Shelters";
+import UserProfile from './pages/UserProfile'
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
@@ -23,7 +24,7 @@ function App() {
     routes = (
       <Switch>
         <Route exact path="/" component={Shelters} />
-        <Route exact path="/shelters" component={Shelters} />
+        <Route exact path="/users" component={UserProfile} />
         <Route exact path="/shelters/:id" component={Detail} />
         <Route component={NoMatch} />
         <Redirect to ="/" />
@@ -36,8 +37,6 @@ function App() {
         <Route exact path="/auth"><Auth/></Route>
         <Redirect to="/" />
       </Switch>
-      
-
     );
   }
 
@@ -47,11 +46,7 @@ function App() {
       <div>
         <Nav />
         
-        <Switch>
-          <Route exact path="/" component={Shelters} />
-          <Route exact path="/auth"><Auth/></Route>
-          <Redirect to="/" />
-        </Switch>
+        {routes}
           
         
       </div>
