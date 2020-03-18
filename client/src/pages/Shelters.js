@@ -16,7 +16,6 @@ class Shelters extends Component {
   state = {
     shelters: []
   }
-
   componentDidMount() {
     this.loadShelters();
   }
@@ -28,7 +27,7 @@ class Shelters extends Component {
     )
     .catch(err => console.log(err));
   }
-
+  
   render() {
     return (
       <Container fluid>
@@ -70,7 +69,7 @@ class Shelters extends Component {
                     ))}
                   </Col>
                   <Col size='sm-6'>
-                  <h3> TO-DO: ADD MAP HERE</h3>
+                    <h3> TO-DO: ADD MAP HERE</h3>
                   </Col>
                 </Row>
               </CardBody>
