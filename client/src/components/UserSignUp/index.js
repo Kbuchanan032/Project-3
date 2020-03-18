@@ -1,28 +1,41 @@
 import React, { useState, useContext, Component } from 'react';
-
-import { Card, CardHeader, CardBody } from '../components/Card';
-import Input from '../components/Formelements/Input';
-import Button from '../components/Formelements/Button';
+import API from '../../utils/API';
+import { Link } from 'react-router-dom'
+import { Card, CardHeader, CardBody } from '../Card';
+import { Input, FormBtn } from '../Form/index';
+import Button from '../Formelements/Button';
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE
-} from '../utils/validators';
-import { useForm } from '../components/Form/form-hook';
-import {AuthContext} from '../components/Context/auth-context';
-import './Auth.css';
+} from '../../utils/validators';
+import { useForm } from '../Form/form-hook';
+import {AuthContext} from '../Context/auth-context';
+
 
 
 class UserSignUp extends Component {
+  state = {
+
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+  
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.fullName && this.state.email) {
+    console.log('Submit Button Clicked')
+    if (this.state.name && this.state.email) {
       API.saveUser({
-        name: this.state.title,
-        email: this.state.author,
-        password: this.state.synopsis
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
       })
-        .then(res => this.loadBooks())
+
         .catch(err => console.log(err));
     }
   }
@@ -34,45 +47,42 @@ class UserSignUp extends Component {
           <h3>Sign Up</h3>
         </CardHeader>
         <CardBody>
-          <form onSubmit={this.handleSubmit}>
-            {!isLoginMode && (
-              <Input
-                element="input"
-                id="name"
-                type="text"
-                label="Your Name"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a name."
-                onInput={inputHandler}
-              />
-            )}
+          <form>
             <Input
-              element="input"
-              id="email"
+              name="name"
+              type="name"
+              value={this.state.name}
+              validators={[VALIDATOR_REQUIRE()]}
+              onChange={this.handleInputChange}
+            />
+            <Input
+              name="email"
               type="email"
-              label="E-Mail"
+              value={this.state.email}
               validators={[VALIDATOR_EMAIL()]}
-              errorText="Please enter a valid email address."
-              onInput={inputHandler}
+              onChange={this.handleInputChange}
             />
             <Input
-              element="input"
-              id="password"
+              name="password"
               type="password"
-              label="Password"
+              value={this.state.password}
               validators={[VALIDATOR_MINLENGTH(5)]}
-              errorText="Please enter a valid password, at least 5 characters."
-              onInput={inputHandler}
+              onChange={this.handleInputChange}
             />
-            <Button type="submit" disabled={!formState.isValid}>
-              {isLoginMode ? 'LOGIN' : 'SIGNUP'}
-            </Button>
+            <FormBtn type="submit" onClick={this.handleFormSubmit}>
+              <h4>Sign Up!</h4>
+            </FormBtn>
           </form>
-          <Button inverse onClick={switchModeHandler}>
-            SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
-          </Button>
+          <Link to='/users/login'>
+            <FormBtn>
+              <h4>Already registered? Sign in!</h4>
+            </FormBtn>
+          </Link>
+          
         </CardBody>
       </Card>
     )
   }
 }
+
+export default UserSignUp

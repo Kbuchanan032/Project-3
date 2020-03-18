@@ -12,6 +12,8 @@ import { useForm } from '../components/Form/form-hook';
 import {AuthContext} from '../components/Context/auth-context';
 import './Auth.css';
 
+import UserSignUp from '../components/UserSignUp'
+
 const Auth = () => {
    
   const auth = useContext(AuthContext);  
@@ -63,51 +65,9 @@ const Auth = () => {
   };
 
   return (
-    <Card className="authentication">
-      <CardHeader>
-        <h3>Login Required</h3>
-      </CardHeader>
-      <CardBody>
-        <form onSubmit={authSubmitHandler}>
-          {!isLoginMode && (
-            <Input
-              element="input"
-              id="name"
-              type="text"
-              label="Your Name"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a name."
-              onInput={inputHandler}
-            />
-          )}
-          <Input
-            element="input"
-            id="email"
-            type="email"
-            label="E-Mail"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Please enter a valid email address."
-            onInput={inputHandler}
-          />
-          <Input
-            element="input"
-            id="password"
-            type="password"
-            label="Password"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid password, at least 5 characters."
-            onInput={inputHandler}
-          />
-          <Button type="submit" disabled={!formState.isValid}>
-            {isLoginMode ? 'LOGIN' : 'SIGNUP'}
-          </Button>
-        </form>
-        <Button inverse onClick={switchModeHandler}>
-          SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
-        </Button>
-      </CardBody>
-     
-    </Card>
+    <UserSignUp>
+
+    </UserSignUp>
   );
 };
 

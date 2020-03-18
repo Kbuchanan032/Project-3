@@ -5,7 +5,8 @@ import React from "react";
 export function Input(props) {
   return (
     <div className="form-group">
-      <input className="form-control" {...props} />
+      <label>{props.name}</label>
+      <input type={props.type} className="form-control" id={props.name} name={props.name} aria-describedby={props.name} {...props}/>
     </div>
   );
 }

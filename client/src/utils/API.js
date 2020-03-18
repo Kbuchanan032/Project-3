@@ -5,8 +5,8 @@ export default {
   getShelters: function() {
     return axios.get("/api/shelters");
   },
-  saveUser: function() {
-    return axios.post('/api/users')
+  saveUser: function(userData) {
+    return axios.post('/api/users', userData)
   },
   getUserInfo: function (id) {
     return axios.get("/api/users/" + id)

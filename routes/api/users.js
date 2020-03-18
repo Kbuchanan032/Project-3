@@ -12,4 +12,10 @@ router
   .put(usersController.update)
   .delete(usersController.remove);
 
+router
+  .route("/login")
+  .get(usersController.findUserInfo)
+  .put(usersController.update)
+  .delete(usersController.remove);
+
 module.exports = router;
