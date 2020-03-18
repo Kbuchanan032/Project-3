@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
 import Button from "../components/Button";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Card, CardHeader, CardBody } from "../components/Card";
 import { ShelterCard } from "../components/Results";
 import "./Shelters.css";
-import GoogleApiWrapper from "../components/Map/Map.js";
-import GoogleMapReact from "google-map-react";
-require("dotenv").config();
+import MapContainer from "../components/Map/Map.js";
 
 class Shelters extends Component {
   state = {
@@ -69,7 +66,7 @@ class Shelters extends Component {
                     ))}
                   </Col>
                   <Col size='sm-6'>
-                    <h3> TO-DO: ADD MAP HERE</h3>
+                    <MapContainer></MapContainer>
                   </Col>
                 </Row>
               </CardBody>
