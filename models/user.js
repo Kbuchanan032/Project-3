@@ -5,7 +5,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  img: String,
+  img: {type: String, default: 'https://via.placeholder.com/150'},
   favorites: [],
   reservations: [],
   stayHistory: []
