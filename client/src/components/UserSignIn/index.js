@@ -22,10 +22,10 @@ const UserSignIn = () => {
     }),
     onSubmit: values => {
       console.log(values)
-      API.userLogin(values)
+      API.userLogin(values).catch(err => alert('User Not Found'))
+      
     }
   });
-  
   
   return(
     <Card className=' userSignIn'>

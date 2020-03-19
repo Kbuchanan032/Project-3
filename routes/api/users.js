@@ -3,7 +3,7 @@ const usersController = require("../../controllers/usersController");
 
 // Matches with "/api/users"
 router.route("/")
-  .get(usersController.findByEmail)
+  .get(usersController.userLogin)
   .post(usersController.create);
 
 // Matches with "/api/users/:id"

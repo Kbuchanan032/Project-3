@@ -4,13 +4,27 @@ const db = require("../models");
 // Defining methods for the sheltersController
 module.exports = {
   create: function(req, res) {
+    console.log(req.body)
     db.User
       .create(req.body)
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  findByEmail: function (req, res) {
-    console.log(req.body)
+  userLogin: function (req, res) {
+    let passwordInput = req.params.password
+    let verifiedUser = false
+    const verifyPassword = (saved, input) => {
+      (saved === input) ? verifiedUser = true : verifiedUser = false
+    }
+    console.log(req.query)
+    db.User
+      .findOne({email: req.params.email})
+      .then(res => 
+      {
+        verifyPassword(res.password, passwordInput) 
+        console.log(verifiedUser)
+      })
+      .catch(err => res.status(422).json(err));
   },
   findUserInfo: function(req, res) {
     db.User

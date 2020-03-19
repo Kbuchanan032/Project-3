@@ -14,11 +14,13 @@ export default {
   getUserById: function(id) {
     return axios.get("/api/users/" + id);
   },
-  findUserByEmail: function(userData) {
-    return axios.get('/api/users', userData)
-  },
-  userLogin: function(userData) {
-    return axios.post('/api/users/login', userData)
+  userLogin: function(user) {
+   return axios.get('/api/users', {
+     params: {
+      email: user.email,
+      password: user.password 
+    }
+   })
   },
   // Deletes the book with the given id
   deleteBook: function(id) {
