@@ -5,12 +5,15 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
+    "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
     "react": "^16.13.0",
     "react-dom": "^16.6.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.1",
+    "yup": "^0.28.3"
   },
   "scripts": {
     "start": "react-scripts start",

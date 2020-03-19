@@ -14,7 +14,7 @@ router
 
 router
   .route("/login")
-  .get(usersController.findUserInfo)
+  .post(usersController.verifyUser)
   .put(usersController.update)
   .delete(usersController.remove);
 

@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: String,
-  email: String,
+  firstName: String,
+  lastName: String,
+  email: {type: String, unique: [true, 'That email address is already registered']},
   password: String,
   img: {type: String, default: 'https://via.placeholder.com/150'},
   favorites: [],

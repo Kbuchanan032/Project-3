@@ -1,11 +1,10 @@
 const db = require("../models");
-const passport = require('passport')
 
 // Defining methods for the sheltersController
 module.exports = {
   create: function(req, res) {
     console.log(req.body)
-    db.User
+    db.Provider
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -16,12 +15,10 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  verifyUser: function(req, res) {
-    passport.authenticate('local', { failureRedirect: '/login' }),
-    function(req, res) {
-      res.redirect('/');
-    };
+  findByEmail: function(req, res) {
+    console.log(req)
   },
+
   findUserFavorites: function(req, res) {
     db.User
       .findById(req.params.id)

@@ -37,7 +37,7 @@ class Shelters extends Component {
               <h1>
                 WELCOME TO SHELTER FINDER
               </h1>
-              <Link to='/auth'>
+              <Link to='/signup'>
                 <Button>
                   <h3>CREATE USER ACCOUNT</h3>
                 </Button>

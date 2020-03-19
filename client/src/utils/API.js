@@ -1,4 +1,5 @@
 import axios from "axios";
+import passport from 'passport';
 
 export default {
   // Gets all shelters
@@ -8,8 +9,11 @@ export default {
   saveUser: function(userData) {
     return axios.post('/api/users', userData)
   },
-  getUserInfo: function (id) {
-    return axios.get("/api/users/" + id)
+  saveProvider: function(providerData) {
+    return axios.post('/api/providers', providerData)
+  },
+  userLogin: function(userData) {
+    return axios.post('/api/users/login', userData)
   },
   // Deletes the book with the given id
   deleteBook: function(id) {
