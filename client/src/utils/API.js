@@ -1,5 +1,4 @@
 import axios from "axios";
-import passport from 'passport';
 
 export default {
   // Gets all shelters
@@ -11,6 +10,12 @@ export default {
   },
   saveProvider: function(providerData) {
     return axios.post('/api/providers', providerData)
+  },
+  getUserById: function(id) {
+    return axios.get("/api/users/" + id);
+  },
+  findUserByEmail: function(userData) {
+    return axios.get('/api/users', userData)
   },
   userLogin: function(userData) {
     return axios.post('/api/users/login', userData)

@@ -27,9 +27,10 @@ const UserSignUp = () => {
         .required('Required')
     }),
     onSubmit: values => {
-     
       console.log(values)
-      API.saveUser(values).catch(err => console.log(err));
+      API.saveUser(values)
+        .catch(err => console.log(err))
+      
     },
   });
   return (
