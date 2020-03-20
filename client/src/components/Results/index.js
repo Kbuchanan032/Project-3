@@ -9,7 +9,7 @@ export function ResultsContainer({children}) {
   );
 }
 
-export function ShelterCard({img, name, address, phone, description, availability}) {
+export function ShelterCard({img, name, address, phone, description, availability, coordinates}) {
   return (
     <div class="card mb-3">
       <div class="row no-gutters">

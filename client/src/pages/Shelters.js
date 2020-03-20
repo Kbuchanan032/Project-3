@@ -9,6 +9,7 @@ import { ShelterCard } from "../components/Results";
 import "./Shelters.css";
 import MapContainer from "../components/Map/Map.js";
 
+
 class Shelters extends Component {
   state = {
     shelters: []
@@ -62,11 +63,13 @@ class Shelters extends Component {
                       address={shelter.address} 
                       phone={shelter.phoneNumber}
                       description={shelter.description}
-                      availability={shelter.availableBeds} />
+                      availability={shelter.availableBeds} 
+                      
+                      />
                     ))}
                   </Col>
                   <Col size='sm-6'>
-                    <MapContainer></MapContainer>
+                    <MapContainer />
                   </Col>
                 </Row>
               </CardBody>

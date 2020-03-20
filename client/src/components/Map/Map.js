@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
-<<<<<<< HEAD
-import { Map, GoogleApiWrapper } from "google-map-react";
-require('dotenv').config()
-const API_KEY = process.env.REACT_APP_API_KEY;
-=======
 
 require('dotenv').config()
 
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
->>>>>>> 82a366de188a56a0b13a37e94b1198bdc5d4f3e5
+const API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 console.log(API_KEY);
 
@@ -21,6 +15,8 @@ class MapContainer extends Component {
     },
     zoom: 8
   };
+
+  
   render() {
     return (        
       <div style={{ height: "100vh", width: "100%", position: "center" }}>
@@ -32,6 +28,8 @@ class MapContainer extends Component {
         </div>
     );
   }
+
+  
 }
 
 export default MapContainer;
