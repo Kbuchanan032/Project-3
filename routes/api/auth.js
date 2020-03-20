@@ -31,7 +31,6 @@ router.post('/login/users', function(req, res) {
   db.User.findOne({
     email: req.body.email
   }, function(err, user) {
-    console.log(err)
     if (err) throw err;
     
     if (!user) {
@@ -43,7 +42,7 @@ router.post('/login/users', function(req, res) {
           // if user is found and password is right create a token
           var token = jwt.sign(user.toJSON(), settings.secret);
           // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
+          res.json({success: true, token: 'JWT ' + token, user: user._id});
         } else {
           res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
         }
@@ -77,11 +76,10 @@ router.post('/login/providers', function(req, res) {
   db.Provider.findOne({
     email: req.body.email
   }, function(err, provider) {
-    console.log(err)
     if (err) throw err;
     
     if (!provider) {
-      res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
+      res.status(401).send({success: false, msg: 'Authentication failed. Provider not found.'});
     } else {
       // check if password matches
       provider.comparePassword(req.body.password, function (err, isMatch) {
@@ -89,7 +87,7 @@ router.post('/login/providers', function(req, res) {
           // if user is found and password is right create a token
           var token = jwt.sign(provider.toJSON(), settings.secret);
           // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
+          res.json({success: true, token: 'JWT ' + token, user: provider._id});
         } else {
           res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
         }
@@ -97,5 +95,6 @@ router.post('/login/providers', function(req, res) {
     }
   });
 });
+
 
 module.exports = router;

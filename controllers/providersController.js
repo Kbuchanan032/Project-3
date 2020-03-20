@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the sheltersController
 module.exports = {
   create: function(req, res) {
-    console.log(req.body)
     db.Provider
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -15,10 +14,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findByEmail: function(req, res) {
-    console.log(req)
-  },
-
   findUserFavorites: function(req, res) {
     db.User
       .findById(req.params.id)

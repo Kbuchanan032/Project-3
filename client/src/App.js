@@ -6,15 +6,10 @@ import * as SignIn from './pages/SignIn';
 import UserProfile from './pages/UserProfile'
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
-import Nav from './components/Nav';
-
+import { Nav } from './components/Nav';
 
 
 class App extends Component {
-  state = {
-    loggedIn: false
-  }
-  
   
   render() {
     return (
@@ -30,7 +25,7 @@ class App extends Component {
             <Route exact path='/signin' component={SignIn.SignIn} />
             <Route exact path='/users/signin' component={SignIn.UserSignIn} />
             <Route exact path='/providers/signin' component={SignIn.ProviderSignIn} />
-            <Route exact path='/users' component={UserProfile} />
+            <Route exact path='/users/:id' component={UserProfile} />
             <Route exact path='/shelters/:id' component={Detail} />
             <Route component={NoMatch} />
             <Redirect to ='/' />

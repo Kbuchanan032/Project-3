@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Jumbotron from "../components/Jumbotron";
-import Button from "../components/Button";
+
+import { Jumbotron } from "../components/Jumbotron";
+
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Card, CardHeader, CardBody } from "../components/Card";
 import { ShelterCard } from "../components/Results";
-import "./Shelters.css";
 import MapContainer from "../components/Map/Map.js";
+
+import './assets/Shelters.css';
 
 class Shelters extends Component {
   state = {
@@ -32,17 +33,7 @@ class Shelters extends Component {
         <Row>
           <Col size="sm-12">
             <Jumbotron>
-              <h2>
-                It's nice to meet you!
-              </h2>
-              <h1>
-                WELCOME TO SHELTER FINDER
-              </h1>
-              <Link to='/signup'>
-                <Button>
-                  <h3>CREATE USER ACCOUNT</h3>
-                </Button>
-              </Link>
+              
             </Jumbotron>
           </Col>
         </Row>
