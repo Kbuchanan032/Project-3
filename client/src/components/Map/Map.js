@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+<<<<<<< HEAD
 import { Map, GoogleApiWrapper } from "google-map-react";
 require('dotenv').config()
 const API_KEY = process.env.REACT_APP_API_KEY;
+=======
+
+require('dotenv').config()
+
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+>>>>>>> 82a366de188a56a0b13a37e94b1198bdc5d4f3e5
 
 console.log(API_KEY);
 

@@ -6,7 +6,7 @@ import "./style.css";
 function Button(props) {
   return (
     <button className="btn" {...props} tabIndex="0">
-      CREATE USER ACCOUNT
+      {props.children}
     </button>
   );
 }

@@ -1,4 +1,5 @@
 module.exports = {
   Shelter: require("./shelter"),
-  User: require("./user")
+  User: require("./user"),
+  Provider: require('./provider')
 };

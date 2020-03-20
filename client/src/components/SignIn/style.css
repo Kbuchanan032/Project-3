@@ -1,0 +1,43 @@
+.SignIn {
+  width: 90%;
+  max-width: 50rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.SignIn .card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignIn .card-body .row {
+  min-width: -webkit-fill-available;
+  justify-content: center;
+}
+
+.signUpRedirect {
+  color: #333C40;
+  padding: 1rem;
+}
+
+.SignIn .btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #FFCB2C;
+  border-radius: 4px;
+  background: #FFCB2C;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  min-width: -webkit-fill-available;
+}
+
+.btn:hover,
+.btn:active {
+  background: #333C40;
+  border-color: #333C40;
+  color: white;
+}

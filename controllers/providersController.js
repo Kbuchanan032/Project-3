@@ -1,47 +1,31 @@
 const db = require("../models");
 
-
 // Defining methods for the sheltersController
 module.exports = {
   create: function(req, res) {
     console.log(req.body)
-    db.User
+    db.Provider
       .create(req.body)
-      .then(dbUser => res.json(dbUser))
-      .catch(err => res.status(422).json(err));
-  },
-  userLogin: function (req, res) {
-    let passwordInput = req.params.password
-    let verifiedUser = false
-    const verifyPassword = (saved, input) => {
-      (saved === input) ? verifiedUser = true : verifiedUser = false
-    }
-    console.log(req.query)
-    db.User
-      .findOne({email: req.params.email})
-      .then(res => 
-      {
-        verifyPassword(res.password, passwordInput) 
-        console.log(verifiedUser)
-      })
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findUserInfo: function(req, res) {
     db.User
       .findById(req.params.id)
-      .then(dbUser => console.log(dbUser))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  verifyUser: function(req, res) {
-   db.User.findOne({email: req.body.email})
-    .then(dbUser => console.log(dbUser))
+  findByEmail: function(req, res) {
+    console.log(req)
   },
+
   findUserFavorites: function(req, res) {
     db.User
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel.favorites))
       .catch(err => res.status(422).json(err));
   },
+  
   find: function(req, res) {
     db.Shelter
       .find(req.query)
