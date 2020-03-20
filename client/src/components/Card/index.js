@@ -7,7 +7,7 @@ import './style.css';
 
 export function Card(props) {
   return (
-    <div className={`card ${props.className}`} style={props.style}>
+    <div className={`card${props.className ?  props.className : ''}`} style={props.style}>
       {props.children}
     </div>
   );
@@ -50,7 +50,7 @@ export function CardBody(props) {
     selectedComponent = props.children
   )
   return(
-    <div className='card-body'>
+    <div className={`card-body${props.className ? props.className : ''}`}>
       {selectedComponent}
     </div>
   )

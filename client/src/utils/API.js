@@ -5,11 +5,22 @@ export default {
   getShelters: function() {
     return axios.get("/api/shelters");
   },
-  saveUser: function() {
-    return axios.post('/api/users')
+  saveUser: function(userData) {
+    return axios.post('/api/users', userData)
   },
-  getUserInfo: function (id) {
-    return axios.get("/api/users/" + id)
+  saveProvider: function(providerData) {
+    return axios.post('/api/providers', providerData)
+  },
+  getUserById: function(id) {
+    return axios.get("/api/users/" + id);
+  },
+  userLogin: function(user) {
+   return axios.get('/api/users', {
+     params: {
+      email: user.email,
+      password: user.password 
+    }
+   })
   },
   // Deletes the book with the given id
   deleteBook: function(id) {

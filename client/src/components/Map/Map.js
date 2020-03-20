@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
-import { Map, GoogleApiWrapper } from "google-map-react";
 
 require('dotenv').config()
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 console.log(API_KEY);
 

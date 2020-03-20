@@ -24,7 +24,7 @@ function Nav() {
         )}
         {!auth.isLoggedIn && (
           <li>
-          <NavLink to="/auth">Sign in</NavLink>
+          <NavLink to="/signin">Sign in</NavLink>
         </li>
         )}
         {auth.isLoggedIn && (

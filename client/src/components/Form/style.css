@@ -10,16 +10,17 @@ label {
 form {
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-items: center;
   justify-content: space-between;
 }
 
-.form-group {
+.form-control {
   display: inline-flex;
+  border: 0;
+  justify-content: space-between;
 }
 
 input, textarea {
-
   font: inherit;
   border: 1px solid #ccc;
   background: #f8f8f8;
@@ -39,6 +40,6 @@ input:focus, textarea:focus {
 
 .form-control--invalid input,
 .form-control--invalid textarea {
-  border-color: red;
-  background: #ffd1d1;
+  border: 1px solid red;
 }
+
