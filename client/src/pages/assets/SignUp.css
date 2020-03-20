@@ -1,10 +1,54 @@
-.providerSignIn {
+.SignUp {
+  width: 90%;
+  max-width: 50rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.SignUp .card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignUp .card-body .row {
+  min-width: -webkit-fill-available;
+  justify-content: center;
+}
+
+.signInRedirect {
+  color: #333C40;
+  padding: 1rem;
+}
+
+.SignUp .btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #FFCB2C;
+  border-radius: 4px;
+  background: #FFCB2C;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  min-width: -webkit-fill-available;
+}
+
+/* User & Provider Sign Up */
+.userSignUp {
   width: 90%;
   max-width: 25rem;
   margin: 7rem auto;
   text-align: center;
 }
 
+.providerSignUp {
+  width: 90%;
+  max-width: 25rem;
+  margin: 7rem auto;
+  text-align: center;
+}
 
 label {
   min-width: fit-content;
@@ -19,6 +63,10 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+form div {
+  color: red;
 }
 
 .form-group {
@@ -58,6 +106,7 @@ button {
   margin-right: 1rem;
   text-decoration: none;
   display: inline-block;
+  margin: 1.5rem;
 }
 
 button:focus {
@@ -83,4 +132,3 @@ button:active:disabled {
 p {
   color: #333C40;
 }
-

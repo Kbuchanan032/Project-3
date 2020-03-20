@@ -5,15 +5,23 @@ import { Col, Row, Container } from "../components/Grid";
 import { Card, CardHeader, CardHeaderTabs, CardNavItem, CardBody} from '../components/Card'
 import './Shelters.css'
 
+import { ShelterCard } from '../components/Results'
+
+import UserFavorites from '../components/UserFavorites'
+
 class UserProfile extends Component {
   state = {
-    userID: '',
-    userName: '',
+    userID: '5e73dedf06d96955805f9337',
+    firstName: '',
+    lastName: '',
+    email: '',
     userImg: '',
     userFavorites: [],
     userReservations: [],
     userHistory: [],
-    selectedView: ''
+    selectedView: 'favorites',
+    selectedData: '', 
+    selectedComponent: ''
   }
 
   componentDidMount() {
@@ -21,9 +29,9 @@ class UserProfile extends Component {
   }
 
   loadUserInfo = () => {
-    API.getUserInfo()
+    API.getUserById(this.state.userID)
     .then(res =>
-      this.setState({  userID: res.data.userID, userName: res.data.name, userImg: res.data.img, userFavorites: res.data.favorites, userReservations: res.data.reservations, userHistory: res.data.stayHistory })
+      this.setState({  userID: res.data.userID, firstName: res.data.firstName, lastName:res.data.lastName, email: res.data.email, userImg: res.data.img, userFavorites: res.data.favorites, userReservations: res.data.reservations, userHistory: res.data.stayHistory })
     )
     .catch(err => console.log(err));
   }
@@ -56,19 +64,27 @@ class UserProfile extends Component {
             <Card className='text-center'>
               <CardHeader>
                 <CardHeaderTabs>
-                  <CardNavItem href='' label='Favorites' className={this.state.selectedView === 'favorites' ? ' active' : ''} onClick={this.selectView('favorites')}>
+                  <CardNavItem href='' label='Favorites' onClick={this.selectView('favorites')}>
                   </CardNavItem>
 
-                  <CardNavItem href='' label='Reservations' className={this.state.selectedView === 'reservations' ? ' active' : ''}onClick={this.selectView('reservations')}>
+                  <CardNavItem href='' label='Reservations' onClick={this.selectView('reservations')}>
 
                   </CardNavItem>
-                  <CardNavItem href='' label='History' className={this.state.selectedView === 'history' ? ' active' : ''} onClick={this.selectView('history')}>
+                  <CardNavItem href='' label='History' onClick={this.selectView('history')}>
 
                   </CardNavItem>
                 </CardHeaderTabs>
               </CardHeader>
               <CardBody selectedView={this.state.selectedView} userID={this.state.userID} data={this.state.selectedData}>
-
+                {this.state.selectedData.length ? this.state.selectedData.map(data => 
+                  <ShelterCard
+                    img={data.img} 
+                    name={data.name} 
+                    address={data.address} 
+                    phone={data.phoneNumber}
+                    description={data.description}
+                    availability={data.availableBeds} />
+                ) : 'Nothing to Show Yet'}
                 
               </CardBody>
             </Card>
