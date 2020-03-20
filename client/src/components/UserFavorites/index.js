@@ -5,7 +5,7 @@ import { ShelterCard } from '../Results';
 class UserFavorites extends Component {
   state = {
     userID: this.props.userID,
-    userFavorites: []
+    userFavorites: this.props.data
   } 
 
   componentDidMount() {
@@ -13,21 +13,18 @@ class UserFavorites extends Component {
   }
 
   loadUserFavorites = id => {
-    API.getUserFavorites(id)
-    .then(res =>
-      this.setState({ userFavorites: res.data })
-    )
-    .catch(err => console.log(err));
+
+   console.log(this.state.userID)
   }
 
   render() {
     return (
       <div className="card-deck">
-        {this.state.userFavorites.map(shelter => (
+        {this.state.userFavorites ? this.state.userFavorites.map(shelter => (
           <ShelterCard img={shelter.img} name={shelter.name} address={shelter.address} phone={shelter.phoneNumber} description={shelter.description} availability={shelter.availableBeds}>
 
           </ShelterCard>
-        ))}
+        )) : 'no favorites'}
       </div>  
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Card, CardHeader, CardBody } from '../Card';
@@ -8,10 +8,13 @@ import './style.css'
 
 
 const UserSignIn = () => {
+  const [message, setMessage] = React.useState('')
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
+      message: ''
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -20,10 +23,19 @@ const UserSignIn = () => {
         .min(5, 'Passwords are at least 5 characters')
         .required('Required')
     }),
-    onSubmit: values => {
-      console.log(values)
-      API.userLogin(values).catch(err => alert('User Not Found'))
-      
+    onSubmit: value => {
+      const { email, password } = value;
+      API.userLogin(email, password).then((result) => {
+        localStorage.setItem('jwtToken', result.data.token);
+        debugger
+        setMessage({ message: 'Succesful Login' });
+        history.push('/')
+      })
+      .catch((error) => {
+        if(error.response.status === 401) {
+          setMessage({ message: 'Login failed. Username or password not match'})
+        }
+      });
     }
   });
   
