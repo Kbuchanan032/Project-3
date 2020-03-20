@@ -2,31 +2,34 @@ import axios from "axios";
 
 export default {
   // Gets all shelters
+  saveShelter: function(shelterData) {
+    return axios.post('/api/shelters', shelterData)
+  },
   getShelters: function() {
-    return axios.get("/api/shelters");
+    return axios.get('/api/shelters')
+  },
+  getSheltersByProviderId: function(id) {
+    return axios.get('/api/shelters/' + id);
   },
   saveUser: function(userData) {
-    return axios.post('/api/auth/register', userData)
+    return axios.post('/api/auth/register/users', userData)
   },
   saveProvider: function(providerData) {
-    return axios.post('/api/providers', providerData)
+    return axios.post('/api/auth/register/providers', providerData)
   },
   getUserById: function(id) {
     return axios.get("/api/users/" + id);
   },
   userLogin: function(user, password) {
-    console.log(user)
-   return axios.post('/api/auth/login', {
+   return axios.post('/api/auth/login/users', {
        email: user,
        password: password
    })
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/shelters/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(shelterData) {
-    return axios.post("/api/shelters", shelterData);
+  providerLogin: function(provider, password) {
+    return axios.post('/api/auth/login/providers', {
+      email: provider,
+      password: password
+    })
   }
 };

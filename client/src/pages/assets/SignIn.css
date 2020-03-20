@@ -1,10 +1,51 @@
-.providerSignUp {
+.SignIn {
+  width: 90%;
+  max-width: 50rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.SignIn .card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignIn .card-body .row {
+  min-width: -webkit-fill-available;
+  justify-content: center;
+}
+
+.signUpRedirect {
+  color: #333C40;
+  padding: 1rem;
+}
+
+.SignIn .btn {
+  min-width: -webkit-fill-available;
+}
+
+.btn:hover,
+.btn:active {
+  background: #333C40;
+  border-color: #333C40;
+  color: white;
+}
+
+/* Provider & User Sign In*/
+.userSignIn {
   width: 90%;
   max-width: 25rem;
   margin: 7rem auto;
   text-align: center;
 }
 
+.providerSignIn {
+  width: 90%;
+  max-width: 25rem;
+  margin: 7rem auto;
+  text-align: center;
+}
 
 label {
   min-width: fit-content;
@@ -42,6 +83,11 @@ form {
   border-color: #FFCB2C;
 }
 
+.form-control--invalid {
+  border: 1px solid red;
+  color: red;
+}
+
 button {
   font: inherit;
   padding: 0.5rem 1.5rem;
@@ -73,4 +119,8 @@ button:active:disabled {
   color: #979797;
   border-color: #ccc;
   cursor: not-allowed;
+}
+
+p {
+  color: #333C40;
 }
