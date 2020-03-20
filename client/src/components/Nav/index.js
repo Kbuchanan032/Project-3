@@ -5,6 +5,7 @@ import {AuthContext} from '../Context/auth-context';
 import './style.css'
 
 function Nav() {
+  console.log(localStorage.jwtToken)
   const auth = useContext(AuthContext);
   return (
     <nav className="navbar navbar-expand-lg">

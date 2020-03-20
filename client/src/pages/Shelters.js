@@ -24,6 +24,7 @@ class Shelters extends Component {
       this.setState({ shelters: res.data })
     )
     .catch(err => console.log(err));
+    console.log(this.state.shelters)
   }
   
   render() {

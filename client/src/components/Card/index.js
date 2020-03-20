@@ -37,21 +37,20 @@ export function CardNavItem(props) {
   )
 }
  
-export function CardBody(props) {
-  let selectedView = props.selectedView;
+export function CardBody({selectedView, userID, data, children, className}) {
   let selectedComponent; 
   if (selectedView === 'favorites') {
-    selectedComponent = <UserFavorites userID={props.userID} />
+    selectedComponent = <UserFavorites userID={userID} userFavorites={data}/>
   } else if (selectedView === 'reservations') {
-    selectedComponent = <UserReservations userID={props.userID} />
+    selectedComponent = <UserReservations userID={userID} />
   } else if (selectedView === 'history') {
-    selectedComponent = <UserHistory userID={props.userID} />
+    selectedComponent = <UserHistory userID={userID} />
   } else (
-    selectedComponent = props.children
+    selectedComponent = children
   )
   return(
-    <div className={`card-body${props.className ? props.className : ''}`}>
-      {selectedComponent}
+    <div className={`card-body${className ? className : ''}`}>
+      {children}
     </div>
   )
 }
