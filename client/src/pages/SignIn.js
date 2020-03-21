@@ -28,8 +28,10 @@ export const UserSignIn = () => {
       const { email, password } = value;
       API.userLogin(email, password).then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
+        localStorage.setItem('user', result.data.user);
         setMessage({ message: 'Succesful Login' });
         history.push('/')
+        window.location.reload()
       })
       .catch((error) => {
         if(error) {
@@ -98,8 +100,10 @@ export const ProviderSignIn = () => {
       const { email, password} = value;
       API.providerLogin(email, password).then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
+        localStorage.setItem('user', result.data.user);
         setMessage({ message: 'Succesful Login' });
         history.push('/')
+        window.location.reload()
       })
       .catch((error) => {
         if(error) {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
+import { Jumbotron } from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Card, CardHeader, CardHeaderTabs, CardNavItem, CardBody} from '../components/Card'
-import './Shelters.css'
+import './assets/Shelters.css'
 
 import { ShelterCard } from '../components/Results'
 

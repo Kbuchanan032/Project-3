@@ -8,15 +8,6 @@ class UserFavorites extends Component {
     userFavorites: this.props.data
   } 
 
-  componentDidMount() {
-    this.loadUserFavorites(this.state.userID);
-  }
-
-  loadUserFavorites = id => {
-
-   console.log(this.state.userID)
-  }
-
   render() {
     return (
       <div className="card-deck">
