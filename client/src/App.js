@@ -35,7 +35,7 @@ class App extends Component {
             <Route exact path='/signin' component={SignIn.SignIn} />
             <Route exact path='/users/signin' component={SignIn.UserSignIn} />
             <Route exact path='/providers/signin' component={SignIn.ProviderSignIn} />
-            <Route exact path='/users/:id' component={UserProfile} />
+            <Route exact path='/users/:id' component={NoMatch} />
             <Route path='/providers/:id' component={ProviderProfile} />
             <Route exact path='/shelters/:id' component={Detail} />
             <Route component={NoMatch} />
