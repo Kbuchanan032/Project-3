@@ -1,6 +1,5 @@
 nav {
   background-color: #333C40;
-  height: 5rem;
 }
 
 .navbar-brand {
@@ -61,6 +60,7 @@ nav {
   @media (min-width: 768px) {
     .nav-links {
       flex-direction: row;
+      
     }
   
     .nav-links li {
