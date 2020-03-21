@@ -7,8 +7,6 @@ import './assets/Shelters.css'
 
 import { ShelterCard } from '../components/Results'
 
-import UserFavorites from '../components/UserFavorites'
-
 class UserProfile extends Component {
   state = {
     userID: '',

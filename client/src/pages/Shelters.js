@@ -49,6 +49,7 @@ class Shelters extends Component {
                   <Col size='sm-6'>
                     {this.state.shelters.map(shelter => (
                       <ShelterCard 
+                      key={shelter._id}
                       img={shelter.img} 
                       name={shelter.name} 
                       address={shelter.address} 

@@ -192,7 +192,8 @@ export class ProviderProfile extends Component {
                 <Row>
                   <Col size='sm-12'>
                   {this.state.shelters.length ? this.state.shelters.map(data => 
-                  <ShelterCard
+                  <ShelterCard 
+                    key={data._id}
                     img={data.img} 
                     name={data.name} 
                     address={data.address} 

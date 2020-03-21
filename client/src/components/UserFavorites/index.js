@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import API from '../../utils/API'
 import { ShelterCard } from '../Results';
 
 class UserFavorites extends Component {

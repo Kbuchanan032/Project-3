@@ -1,7 +1,4 @@
 import React from 'react';
-import UserFavorites from '../UserFavorites';
-import UserReservations from '../UserReservations';
-import UserHistory from '../UserHistory';
 
 import './style.css';
 
@@ -38,16 +35,7 @@ export function CardNavItem(props) {
 }
  
 export function CardBody({selectedView, userID, data, children, className}) {
-  let selectedComponent; 
-  if (selectedView === 'favorites') {
-    selectedComponent = <UserFavorites userID={userID} userFavorites={data}/>
-  } else if (selectedView === 'reservations') {
-    selectedComponent = <UserReservations userID={userID} />
-  } else if (selectedView === 'history') {
-    selectedComponent = <UserHistory userID={userID} />
-  } else (
-    selectedComponent = children
-  )
+  
   return(
     <div className={`card-body${className ? className : ''}`}>
       {children}
