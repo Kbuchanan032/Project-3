@@ -1,12 +1,9 @@
 const router = require("express").Router();
 const providersController = require("../../controllers/providersController");
 
-// Matches with "/api/providers"
-router.route("/")
-  .post(providersController.create);
 
 // Matches with "/api/providers/:id"
-/*router
+router
   .route("/:id")
   .get(providersController.findProviderInfo)
   .put(providersController.update)
@@ -17,5 +14,5 @@ router
   .get(providersController.findProviderInfo)
   .put(providersController.update)
   .delete(providersController.remove);
-*/
+
 module.exports = router;

@@ -1,0 +1,30 @@
+.jumbotron {
+  background: url('../../assets/img/header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-sm-12 {
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 0;
+  color: #333C40;
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #FFCB2C;
+  text-shadow: 2px 1px #333C40;
+}

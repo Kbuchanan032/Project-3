@@ -29,6 +29,7 @@ export const UserSignIn = () => {
       API.userLogin(email, password).then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         localStorage.setItem('user', result.data.user);
+        localStorage.setItem('type', 'users');
         setMessage({ message: 'Succesful Login' });
         history.push('/')
         window.location.reload()
@@ -101,6 +102,7 @@ export const ProviderSignIn = () => {
       API.providerLogin(email, password).then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         localStorage.setItem('user', result.data.user);
+        localStorage.setItem('type', 'providers');
         setMessage({ message: 'Succesful Login' });
         history.push('/')
         window.location.reload()

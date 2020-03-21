@@ -20,6 +20,9 @@ export default {
   getUserById: function(id) {
     return axios.get("/api/users/" + id);
   },
+  getProvidersById: function(id) {
+    return axios.get("/api/providers/" + id);
+  },
   userLogin: function(user, password) {
    return axios.post('/api/auth/login/users', {
        email: user,
