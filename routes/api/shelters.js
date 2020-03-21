@@ -4,7 +4,7 @@ var passport = require('passport');
 
 require('../../config/passport')(passport);
 
-var Shelter = require("../../models/shelter");
+var db = require("../../models");
 
 //Public routes
 router.route('/')
@@ -24,28 +24,11 @@ getToken = function (headers) {
   }
 };
 
-router.post('/', passport.authenticate('jwt', { session: false}), function(req, res) {
-  var token = getToken(req.headers);
-  if (token) {
-    Shelter.create(req.body, function (err, post) {
-      if (err) return next(err);
-      res.json(post);
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'Unauthorized.'});
-  }
-});
+router.route('/')
+  .post(sheltersController.create)
+  
 
-router.get('/:id', passport.authenticate('jwt', { session: false}), function(req, res) {
-  var token = getToken(req.headers);
-  if (token) {
-    Shelter.find(function (err, shelter) {
-      if (err) return next(err);
-      res.json(shelter);
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'Unauthorized.'});
-  }
-});
+router.route('/:id')
+  .get(sheltersController.findByProviderId)
 
 module.exports = router;

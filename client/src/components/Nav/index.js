@@ -5,7 +5,7 @@ import './style.css'
 
 export class Nav extends Component {
   state = {
-    loggedIn: 'false'
+    loggedIn: 'false',
   }
   componentWillMount() {
     localStorage.getItem('jwtToken') ? this.setState({loggedIn: true}) : this.setState({loggedIn: false})
@@ -13,7 +13,7 @@ export class Nav extends Component {
     localStorage.getItem('user')
   }
   logOut = () => {
-    localStorage.removeItem('jwtToken', 'user');
+    localStorage.removeItem('jwtToken', 'user', 'type');
     window.location.replace('/');
   }
 
@@ -29,7 +29,7 @@ export class Nav extends Component {
             </li>
           {this.state.loggedIn ? (
           <li>
-            <NavLink to="/users/:id">Profile</NavLink>
+            <NavLink to={`/${this.props.type}/${this.props.user}`}>Profile</NavLink>
           </li>) : 
           ('')}
           {this.state.loggedIn ? 
@@ -40,8 +40,6 @@ export class Nav extends Component {
               <NavLink to={`/signin`}>Sign In</NavLink>
              </li>)
           }
-          
-        
         </ul>
       </nav>
     );

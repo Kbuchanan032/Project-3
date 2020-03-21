@@ -3,23 +3,13 @@ const Schema = mongoose.Schema;
 
 const shelterSchema = new Schema({
   img: String,
-  shelterName: String,
-  address: {
-    street: String,
-    city: String,
-    state: String, 
-    zip: String
-  },
-  shelterPhoneNumber: String, 
-  shelterDescription: String,
+  name: String,
+  address: String,
+  phone: String, 
+  description: String,
   availableBeds: Number,
   totalBeds: Number,
-  contactPerson: {
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String
-  }
+  provider: { type: Schema.Types.ObjectId, ref: 'Provider'}
 });
 
 const Shelter = mongoose.model("shelter", shelterSchema);

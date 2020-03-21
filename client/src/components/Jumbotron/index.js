@@ -11,9 +11,7 @@ export class Jumbotron extends Component {
     guestContent: ['WELCOME TO SHELTER FINDER', "It's nice to meet you!"],
     authContent: ['WELCOME BACK TO SHELTER FINDER', 'Hello again!']
   }
-  componentDidUpdate() {
-   this.state.user !== '' ? API.getUserById(this.state.user).then(res => this.setState({userName: res.firstName  })) : this.setState({userName: ''})
-  } 
+
 
   render() {
     return (
@@ -22,12 +20,12 @@ export class Jumbotron extends Component {
         className="jumbotron jumbotron-fluid"
       >
         <h2>
-          {this.state.user !== '' ? this.state.authContent[1] : this.state.guestContent[1]}
+          {this.state.user !== 'null' ? this.state.authContent[1] : this.state.guestContent[1]}
         </h2>
         <h1>
-          {this.state.user !== '' ? this.state.authContent[0] : this.state.guestContent[0]}
+          {this.state.user !== 'null' ? this.state.authContent[0] : this.state.guestContent[0]}
         </h1>
-        {this.state.user !== '' ?  ('') :
+        {this.state.user !== 'null' ?  ('') :
           (<Link to='/signup'>
             <Button>
               <h3>CREATE USER ACCOUNT</h3>

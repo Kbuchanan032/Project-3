@@ -10,6 +10,8 @@
 
 .card-header {
   background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .card-header h3 {

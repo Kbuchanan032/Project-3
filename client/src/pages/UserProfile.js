@@ -11,7 +11,7 @@ import UserFavorites from '../components/UserFavorites'
 
 class UserProfile extends Component {
   state = {
-    userID: '5e73dedf06d96955805f9337',
+    userID: '',
     firstName: '',
     lastName: '',
     email: '',
