@@ -28,7 +28,7 @@ export class Jumbotron extends Component {
         {this.state.user !== 'null' ?  ('') :
           (<Link to='/signup'>
             <Button>
-              <h3>CREATE USER ACCOUNT</h3>
+              <h3>CREATE ACCOUNT</h3>
             </Button>
           </Link>
           )
