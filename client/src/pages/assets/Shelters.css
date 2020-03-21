@@ -8,3 +8,7 @@
 #resultsContainer{
   display: flex;
 }
+
+.card{
+  overflow: scroll;
+}

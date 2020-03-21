@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom'
 import API from "../../utils/API";
+import {Row, Col} from '../Grid';
 import Button from '../Button'
 import './style.css';
 
@@ -8,7 +9,7 @@ import './style.css';
 export class ProfileHeader extends Component {
   state = {
     user: `${localStorage.getItem('user')}`,
-    data: {}
+    userData: ''
   }
 
   componentDidMount() {
@@ -16,17 +17,23 @@ export class ProfileHeader extends Component {
   } 
 
   loadUserInfo = () => {
-    API.getUserById(this.state.user).then(res => this.setState({data: res  }))
-    console.log(this.state.data)
+    API.getProvidersById(this.state.user).then(result => this.setState({userData: result.data}))
   }
 
   render() {
     return (
       <div
-        style={{ height: 500, clear: "both", paddingTop: 120, textAlign: "center"}}
-        className="jumbotron jumbotron-fluid"
+        style={{ height: 500, clear: "both", textAlign: "center"}}
+        className="jumbotron jumbotron-fluid" id='profile-header'
       >
-        <h1>username</h1>
+        <Row>
+          <Col size='md-3'>
+            <img src={this.state.userImg ? this.state.userImg : 'https://via.placeholder.com/250'}  alt='username'></img>
+          </Col>
+          <Col size='md-9'>
+            <h1>{this.state.userData.firstName} {this.state.userData.lastName}</h1>
+          </Col>
+        </Row>
       </div>
     );
   }

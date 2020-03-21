@@ -21,9 +21,9 @@ export function CardHeader({children}) {
   )
 }
 
-export function CardHeaderTabs({children}) {
+export function CardHeaderTabs({props, children}) {
   return (
-    <ul className="nav nav-tabs card-header-tabs">
+    <ul className="nav nav-tabs card-header-tabs" {...props}>
     {children}
     </ul>
   )

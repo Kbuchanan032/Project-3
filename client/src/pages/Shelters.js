@@ -42,7 +42,7 @@ class Shelters extends Component {
           <Col size='sm-12'>
             <Card>
               <CardHeader>
-                <h3 id='availability-header'>AVAILABILITY</h3>
+                <h3 id='availability-header'>SHELTERS</h3>
               </CardHeader>
               <CardBody>
                 <Row>

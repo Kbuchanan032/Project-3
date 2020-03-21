@@ -9,13 +9,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findUserFavorites: function(req, res) {
-    db.User
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel.favorites))
-      .catch(err => res.status(422).json(err));
-  },
-  
   find: function(req, res) {
     db.Shelter
       .find(req.query)

@@ -30,7 +30,7 @@ export const UserSignIn = () => {
         localStorage.setItem('jwtToken', result.data.token);
         localStorage.setItem('user', result.data.user);
         localStorage.setItem('type', 'users');
-        setMessage({ message: 'Succesful Login' });
+        setMessage( 'Succesful Login' );
         history.push('/')
         window.location.reload()
       })
