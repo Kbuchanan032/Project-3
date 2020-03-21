@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import { NavLink } from 'react-router-dom';
 import './style.css'
 
-
 export class Nav extends Component {
   state = {
     loggedIn: 'false',
@@ -13,7 +12,9 @@ export class Nav extends Component {
     localStorage.getItem('user')
   }
   logOut = () => {
-    localStorage.removeItem('jwtToken', 'user', 'type');
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('user');
+    localStorage.removeItem('type');
     window.location.replace('/');
   }
 

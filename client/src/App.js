@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Shelters from './pages/Shelters';
 import * as SignUp from './pages/SignUp';
 import * as SignIn from './pages/SignIn';
-import UserProfile from './pages/UserProfile'
 import { ProviderProfile } from './pages/ProviderProfile'
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
